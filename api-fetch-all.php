@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-header('Acess-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: *');
 include("config.php");
 $sql = "select * from user";
 $result = mysqli_query($conn,$sql) or die("No data found.".mysqli_error($result));

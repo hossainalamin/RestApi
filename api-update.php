@@ -1,7 +1,7 @@
 <?php
 header("Content-Type: application/json");
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: post');
+header('Access-Control-Allow-Methods: put');
 header('Access-Control-Allow-Header: Access-Control-Allow-Header,Content-Type,Access-Control-Allow-Origin,Access-Control-Allow-Methods,Authorization,X-Requested-With ');
 include("config.php");
 $data = json_decode(file_get_contents("php://input"),true);

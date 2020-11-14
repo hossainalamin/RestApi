@@ -66,7 +66,7 @@
 					</tr>
 					<tr>
 						<td>Email</td>
-						<td><input type="number" name="semail" id="edit-email"></td>
+						<td><input type="text" name="semail" id="edit-email"></td>
 					</tr>
 					<tr>
 						<td>Skill</td>
@@ -109,10 +109,30 @@
 				});
 			}
 			loadTable();
+			//Fetch single record in modal box
+			$(document).on('click','.edit-btn',function(){
+				$('#modal').show();
+				var student_id  = $(this).data('eid');
+				var obj         = {sid : student_id};
+				var my_json     = JSON.stringify(obj);
+				$.ajax({
+					url  : 'http://localhost/RestApi/api-fetch-single.php',
+					type : 'POST',
+					data : my_json,
+					success : function(data){
+						$('#edit-id').val(data[0].ID);
+						$('#edit-name').val(data[0].Name);
+						$('#edit-email').val(data[0].Email);
+						$('#edit-skill').val(data[0].Skill);
+					}
+				});
+			});
+			
+			//hide modal box
+			$('#close-btn').on('click',function(){
+				$('#modal').hide();
+			});
 		});
-		
-		//Fetch single record in modal box
-		
 
 	</script>
 </body>
